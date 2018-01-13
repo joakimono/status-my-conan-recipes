@@ -1,0 +1,6 @@
+library,homepage,repo,reponame,branch
+clapack,http://www.netlib.org/clapack,github,conan-clapack,master
+libboard,https://github.com/c-koi/libboard,github,conan-libboard,master
+libharu,http://libharu.org,github,conan-libharu,master
+libmodbus,http://libmodbus.org,github,conan-libmodbus,master
+tinyxml,http://www.grinninglizard.com/tinyxml,github,conan-tinyxml,master
