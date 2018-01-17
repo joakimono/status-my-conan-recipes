@@ -38,7 +38,7 @@ def WriteRow(libname,homepage,repo,reponame,branch,inTable):
                                          BadgeAppveyor(repo,reponame,branch))
 
 def GetStatusFor(library):
-    with open('list.csv', 'rb') as csvfile:
+    with open('list.csv', 'rt') as csvfile:
         reader = csv.DictReader(csvfile, delimiter=',')
         for row in reader:
             if library == row['library']:
@@ -48,7 +48,7 @@ def GetStatusFor(library):
 def WriteFile():
     with open('Out.md', 'w') as fil:
         fil.write(TableHeader())
-        with open('list.csv', 'rb') as csvfile:
+        with open('list.csv', 'rt') as csvfile:
             reader = csv.DictReader(csvfile, delimiter=',')
             for row in reader:
                 theLine = WriteRow(row['library'], row['homepage'], row['repo'],
