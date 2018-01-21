@@ -23,7 +23,7 @@ def BadgeAppveyor(repo,reponame,branch):
     return "[![Build Status WIND](https://ci.appveyor.com/api/projects/status/{0}/joakimono/{1}?branch={2}&svg=true)](https://ci.appveyor.com/project/joakimono/{1})".format(repo,reponame,branch)
 
 def TableHeader():
-    return "# status-my-conan-recipes\n\nSoftware | Recipe | Bintray | Linux, OS/X | Windows\n---|---|---|---|---\n"
+    return "# status-my-conan-recipes\n\nSoftware | Recipe | Bintray | Linux, macOS | Windows\n---|---|---|---|---\n"
 
 def WriteRow(libname,homepage,repo,reponame,branch,inTable):
     if not inTable:
@@ -45,7 +45,31 @@ def GetStatusFor(library):
                 print(WriteRow(row['library'], row['homepage'], row['repo'],
                                    row['reponame'],row['branch'], False))
 
-def WriteFile():
+def WriteLibReadmeFor(library):
+    with open('list.csv', 'rt') as csvfile:
+        reader = csv.DictReader(csvfile, delimiter=',')
+        for row in reader:
+            if library == 'ALL' or library == row['library']:
+                with open('TemplateReadme.md', 'rt') as mdfile:
+                    temp = mdfile.read()
+                with open('README_{}.md'.format(row['library']), 'w') as fil:
+                    fil.write(temp.format(WriteRow(row['library'],
+                                                   row['homepage'],
+                                                   row['repo'],
+                                                   row['reponame'],
+                                                   row['branch'], False),
+                                          row['library'],
+                                          row['homepage'],
+                                          row['version'],
+                                          row['opt_example']))
+    
+def WriteLibReadme(libname, homepage, repo, reponame, branch, version, opt_example):
+    with open('TemplateReadme.md', 'rt') as mdfile:
+        temp = mdfile.read()
+    
+
+
+def WriteStatusFile():
     with open('Out.md', 'w') as fil:
         fil.write(TableHeader())
         with open('list.csv', 'rt') as csvfile:

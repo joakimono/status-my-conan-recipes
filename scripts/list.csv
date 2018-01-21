@@ -1,7 +1,7 @@
-library,homepage,repo,reponame,branch
-clapack,http://www.netlib.org/clapack,github,conan-clapack,master
-libboard,https://github.com/c-koi/libboard,github,conan-libboard,master
-libharu,http://libharu.org,github,conan-libharu,master
-libmodbus,http://libmodbus.org,github,conan-libmodbus,master
-tinyxml,http://www.grinninglizard.com/tinyxml,github,conan-tinyxml,master
-mathgl,http://mathgl.sourceforge.net,github,conan-mathgl,master
+library,homepage,repo,reponame,branch,version,opt_example
+clapack,http://www.netlib.org/clapack,github,conan-clapack,master,3.2.1,
+libboard,https://github.com/c-koi/libboard,github,conan-libboard,master,0.9.4,
+libharu,http://libharu.org,github,conan-libharu,master,2.3.0,libharu:shared=False
+libmodbus,http://libmodbus.org,github,conan-libmodbus,master,3.1.4p1,libmodbus:shared=False
+mathgl,http://mathgl.sourceforge.net,github,conan-mathgl,master,2.6.2,mathgl:shared=False
+tinyxml,http://www.grinninglizard.com/tinyxml,github,conan-tinyxml,master,2.4.2,
